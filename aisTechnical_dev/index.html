@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AIS Bible</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+
+<!-- NAVBAR -->
+    <nav id="navbar">
+
+      <header>Aquatic Site Maintenance</header>
+      <p id="version">v4.20.69</p>
+      <ul>
+
+        <button type="button" class="nav-link collapsible">Overview</button>
+        <ul class="content">
+          <li><a href="#generalSite" class="nav-link">General Information</a></li>
+          <li><a href="#bigc" class="nav-link">BIGC</a></li>
+          <li><a href="#tecr" class="nav-link">TECR</a></li>
+        </ul> 
+
+        <button type="button" class="nav-link collapsible">Setting and Downloading Logs</button>
+        <ul class="content">
+          <li><a href="#sondeLogs" class="nav-link">Sonde</a></li>
+          <li><a href="#trollLogs" class="nav-link">Trolls</a></li>
+          <li><a href="#hoboLogs" class="nav-link">HOBOs</a></li>
+        </ul>
+      
+        <button type="button" class="nav-link collapsible"><del>SUNA</del></button>
+        <ul class="content">
+          <li><a href="#suna_calibration" class="nav-link">Calibration</a></li>
+          <li><a href="#suna_replacement" class="nav-link">Replacement</a></li>
+        </ul>
+      
+        <button type="button" class="nav-link collapsible">Met Station</button>
+        <ul class="content">
+          <li><a href="#par" class="nav-link">PAR</a></li>
+          <li><a href="#netRad" class="nav-link">NR-01</a></li>
+          <li><a href="#humidity" class="nav-link">HMP-155</a></li>
+          <li><a href="#baro" class="nav-link">Vaisala Barometer</a></li>
+          <li><a href="#2dwind" class="nav-link">2D Anemometer</a></li>
+          <li><a href="#ats" class="nav-link">ATS</a></li>
+          <li><a href="#tipping" class="nav-link">Tipping Bucket</a></li>
+        </ul>
+      
+        <button type="button" class="nav-link collapsible"><del>Groundwater Wells</del></button>
+        <ul class="content">
+          <li><a href="#trolls" class="nav-link">Troll</a></li>
+          <li><a href="#logging" class="nav-link">Logs</a></li>
+        </ul>
+
+        <button type="button" class="nav-link collapsible">Portal, Stirling, Propane</button>
+        <ul class="content">
+          <li><a href="#propane" class="nav-link">Propane</a></li>
+          <li><a href="#stirling" class="nav-link">Stirling</a></li>
+          <li><a href="#portal" class="nav-link">Portal</a></li>
+        </ul>
+
+        <!-- Template for new section on nav bar - <ul> for .content is REQUIRED due to click listener logic using nextElementSibling off .collapsible
+
+        <button type="button" class="nav-link collapsible">Name</button>
+        <ul class="content">
+          <li><a href="#" class="nav-link">SectionName</a></li>
+          <li><a href="#" class="nav-link">SectionName</a></li>
+        </ul> 
+
+        -->
+      
+      </ul>
+
+    <span><a href="#main-doc">Back to top</a></span>
+
+    </nav>
+
+<!-- MAIN -->
+    <main id="main-doc">
+      <header>Overview</header>
+      <section id="Overview" class="main-section">
+        
+        <article>
+        <header id="generalSite">General Information</header>
+          
+          <p>something bout putty's general schema user resuresu</p>
+
+          <p> Rocketlinx admin ne0n6366 for switch access, powercycling and verifying grape loc</p>
+
+        <!-- HORVER and maximo/general instrument locations  -->
+        <caption>Sensor Locations</caption>
+            <table id="locTable">
+              <thead>
+                <th>Index</th>
+                <th>HOR.VER Name</th>
+                <th>What Can Be There</th>
+                <th>Maximo Locations</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>101.100</td>
+                  <td>S1 Monopod</td>
+                  <td>Sonde, PAR, Troll, PRT</td>
+                  <td>PAR Radiation S1, Water Level S1, Water Chemistry and Temperature S1</td>
+                </tr>
+                <tr>
+                  <td>131.100</td>
+                  <td>S1 Lonely Troll</td>
+                  <td>Troll</td>
+                  <td>Water Level S1 Lone Troll</td>
+
+                </tr>
+                <tr>
+                  <td>111.100</td>
+                  <td>S1 Overhang</td>
+                  <td>Sonde, PAR, PRT</td>
+                  <td>PAR Radiation S1 Overhang, Water Chemistry and Temperature FDOM S1 Overhang</td>
+
+                </tr>
+                <tr>
+                  <td>102.100</td>
+                  <td>S2 Monopod</td>
+                  <td>Sonde, SUNA, PAR, Troll, PRT</td>
+                  <td>PAR Radiation S2, Water Level S2, Water Chemistry and Temperature S2, Nitrate Analyzer S2</td>
+                </tr>
+                <tr>
+                  <td>132.100</td>
+                  <td>S2 Lonely Troll</td>
+                  <td>Troll</td>
+                  <td>Water Level S2 Lone Troll</td>
+
+                </tr>
+                <tr>
+                  <td>112.100</td>
+                  <td>S2 Overhang</td>
+                  <td>Sonde, SUNA, PAR, PRT</td>
+                  <td>PAR Radiation S2 Overhang, Water Chemistry and Temperature S2 Overhang, Nitrate Analyzer S2 Overhang</td>
+
+                </tr>
+                <tr>
+                  <td>110.100</td>
+                  <td>Staff Gauge Troll</td>
+                  <td>Troll</td>
+                  <td>Water Level Staff Gauge</td>
+                </tr>
+              </tbody>
+            </table>
+
+          <!-- BIGC -->
+          <header id="bigc">Upper Big Creek (BIGC)</header>
+
+          <!-- site info code block-->
+          <code>Latitude/longitude: 37.058, -119.256<br>Phenocam: http://10.117.144.40/<br>LC IP: 10.117.129.2</code>
+
+          <!-- map -->
+          <button class="pdfToggler">Toggle PDF Map</button>
+          <iframe src="assets/maps/BIGC.pdf" width="100%" height="500px"></iframe>
+
+          <div>
+
+          <caption>Bio Bout Samples</caption>
+            <table>
+              <thead>
+                <th> </th>
+                <th>ALG</th>
+                <th>BMC</th>
+                <th>INV</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Dominant</td>
+                  <td>5 epipsammon</td>
+                  <td>5 epipsammon</td>
+                  <td>5 cobble run TAX</td>
+                </tr>
+                <tr>
+                  <td>Sub-dominant</td>
+                  <td>3 epilithon</td>
+                  <td>3 epilithon</td>
+                  <td>3 cobble riffle TAX</td>
+                </tr>
+                <tr>
+                  <td>Additional</td>
+                  <td>1 seston (2L)</td>
+                  <td>NA</td>
+                  <td>3 cobble run DNA</td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+
+          <br>
+          
+          <!-- TECR -->
+          <header id="tecr">Teakettle Creek (TECR)</header>
+
+          <!-- site info code block -->
+          <code>Latitude/longitude: 36.95528, -119.02699<br>Phenocam: http://10.117.128.40/<br>LC IP: 10.117.145.2</code>
+
+          <!-- map -->
+          <button class="pdfToggler">Toggle PDF Map</button>
+          <iframe src="assets/maps/TECR.pdf" width="100%" height="500px"></iframe>
+
+          <div>
+          <caption>Bio Bout Samples</caption>
+          <!-- try switching the headers and first column on this table, sort of makes more sense syntactically but might not be as preferable for the content? just want to see -->
+            <table>
+              <thead>
+                <th> </th>
+                <th>ALG</th>
+                <th>BMC</th>
+                <th>INV</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Dominant</td>
+                  <td>5 epilithon</td>
+                  <td>5 epilithon</td>
+                  <td>5 cobble riffle TAX</td>
+                </tr>
+                <tr>
+                  <td>Sub-dominant</td>
+                  <td>3 epilithon-LS</td>
+                  <td>3 epilithon-LS</td>
+                  <td>3 bedrock riffle TAX</td>
+                </tr>
+                <tr>
+                  <td>Additional</td>
+                  <td>1 seston (2L)</td>
+                  <td>NA</td>
+                  <td>3 cobble riffle DNA</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </article>   
+
+      </section>
+      <div class="divider">
+        <hr>
+      </div>
+
+      <section id="Logs" class="main-section">
+
+        <header>Setting and Downloading Logs</header>
+        <article>
+          <header id="sondeLogs">Sonde</header>
+
+
+          <header id="trollLogs">Trolls</header>
+          <ol>
+            <li>step one</li>
+            <li>tue</li>
+            <li>free</li>
+          </ol>
+
+          <header id="hoboLogs">HOBOs</header>
+
+        </article>   
+
+        <code>Sample code</code>
+
+      </section>
+      <div class="divider">
+        <hr>
+      </div>
+
+      <section id="SUNA" class="main-section">
+
+        <header><del>SUNA</del></header>
+        <article>
+          <header id="suna_replacement">What to put here and in Sonde section</header>
+          <p>probably unnecessary and not a great idea to summarize calibration or replacement procedures here, people should have the PMs and protocols on their computer anyway to reference. Maybe things like logging procedures here for sonde and trolls since the documentation we were given is all over the place and frequently has outdated screenshots or mistakes in instruction i.e. aqua troll v level troll parameters</p>
+        </article>
+
+      </section>
+      <div class="divider">
+        <hr>
+      </div>
+
+      <section id="Met_Station" class="main-section">
+
+        <header>Met Station</header>
+        <article>
+          <header id="par">PAR</header>
+          <p>The Kipp & Zonen PQS-1 PAR Quantum Sensor (PAR or PQS1) measures photosynthetically active radiation. The most important component of the sensor is the diffuser. The diffuser is where light enters the sensor so it must be kept clear of debris, be protected from scratches or residue, and remain level to take accurate and consistent measurements. A built-in bubble level and adjustment screws allow for easy leveling. Use a soft-bristled brush or damp Kimwipe to gently wipe away accumulated dirt or residue. A digital level can be used to ensure the PAR is level along North-South and East-West axes.</p>
+
+          <p>The PAR produces one data stream. Raw L0 data is collected in volts (V) and L1 readings are expressed in micromoles per second and square meter (µm/m<sup>2</sup>/s). A healthy range for L1 data is between 0 and 1000. Monitor PAR values across an entire site to verify they are reading within normal values for the area.</p>
+
+          
+            <caption>PAR Data Streams</caption>
+            <table>
+              <thead>
+                <th>Stream #</th>
+                <th>Stream Name</th>
+                <th>Units</th>
+                <th>Healthy Range</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>0</td>
+                  <td>Photosynthetic Photon Flux Density</td>
+                  <td>µm/m<sup>2</sup>/s</td>
+                  <td>0 - 1000; L1 reading</td>
+                </tr>
+              </tbody>
+            </table>
+          
+
+          <code>insert code for accessing a sample PAR stream via putty? maybe IS suite screenshot as well?</code>
+
+          <header id="netRad">NR-01</header>
+          <p>The Huskeflux NR01 Net Radiometer (NR01) consists of four separate sensors for measuring total global and surface reflected shortwave and longwave radiation. A pair of upward and downward facing SR01 pyranometers (domed sensor, shortwave radiation) and a pair of upward and downward facing IR01 pyrgeometers (flat sensor, longwave radiation) make up the four sensors of this instrument. The pyrgeometers are also fitted with a small 1.5W heater to keep the sensors above dew point overnight (should see activity ever night), and a temperature sensor in the body used to correct irradiance measurements. A digital level should be used to ensure the NR01 is level along x- and y-axes.</p>
+
+          <!-- table title -->
+          <caption>NR01 Data Streams</caption>
+            <table>
+              <!-- headers -->
+              <thead>
+                <th>Stream #</th>
+                <th>Stream Name</th>
+                <th>Units</th>
+                <th>Healthy Range</th>
+              </thead>
+
+              <tbody>
+                <!-- rows -->
+                <!-- stream 0 -->
+                <tr>
+                  <td>0</td>
+                  <td>Downward facing pyranometer</td>
+                  <td>W/m<sup>2</sup></td>
+                  <td>0 to 0.060; L0 reading<br>Typically less than stream 1</td>
+                </tr>
+
+                <!-- stream 1 -->
+                <tr>
+                  <td>1</td>
+                  <td>Upward facing pyranometer</td>
+                  <td>W/m<sup>2</sup></td>
+                  <td>0 to 0.060; L0 reading</td>
+                </tr>
+
+                <!-- stream 2 -->
+                <tr>
+                  <td>2</td>
+                  <td>Downward facing pyrgeometer</td>
+                  <td>W/m<sup>2</sup></td>
+                  <td>+/- 0.005; L0 reading</td>
+                </tr>
+
+                <!-- stream 3 -->
+                <tr>
+                  <td>3</td>
+                  <td>Upward facing pyrgeometer</td>
+                  <td>W/m<sup>2</sup></td>
+                  <td>+/- 0.005; L0 reading</td>
+                </tr>
+
+                <!-- stream 4 -->
+                <tr>
+                  <td>4</td>
+                  <td>Sensor body PRT</td>
+                  <td>Degrees C</td>
+                  <td>-30 to +50; L1 reading</td>
+                </tr>
+
+                <!-- stream 5 -->
+                <tr>
+                  <td>5</td>
+                  <td>Heater flag</td>
+                  <td>Binary</td>
+                  <td>0: off, 1: on</td>
+                </tr>
+
+              </tbody>
+            </table>
+
+          <code>sample code for accessing streams here</code>
+
+          <div class="imgContainer">
+            <img class="flexImg" src="assets/images/nr01_plots.png">
+            <div class="imgCaption">L0 Blizzard data for each of the individual sensors that make up the NR01. Data taken from BIGC on 2020-08-05.</div>
+          </div>
+
+          <p>elaborate on plots here: well defined curve for incoming shortwave and reflection; likely cloud/shade cover in am; outgoing longwave mirrors the shortwave during the day due to the sun heating things up on the ground; incoming longwave is low because of a lack of clouds reflecting radiation back</p>
+
+          <p>Section about PMs</p>
+
+          <div class="imgContainer">
+            <img src="assets/images/nr01_merlotLayout.png" class="flexImg">
+            <br>
+            <div class="imgCaption">GRAPE diagram for the NR01. At AIS Met Stations the NR01 shares a Merlot 12V GRAPE with the PAR.</div>
+          </div>
+
+          <p>section about removing ice/snow w/ hot water thermos, hot hands, heat gun</p>
+
+          <header id="humidity">HMP-155</header>
+          <p>Donec placerat nunc in odio tempus venenatis. Suspendisse placerat ipsum eros, non viverra massa facilisis et.</p>
+
+          <!-- table title -->
+          <caption>HMP-155 Data Streams</caption>
+            <table>
+              <!-- headers -->
+              <thead>
+                <th>Stream #</th>
+                <th>Stream Name</th>
+                <th>Units</th>
+                <th>Healthy Range</th>
+              </thead>
+
+              <tbody>
+                <!-- rows -->
+                <!-- stream 0 -->
+                <tr>
+                  <td>0</td>
+                  <td>Relative Humidity</td>
+                  <td>%</td>
+                  <td>0 to 100</td>
+                </tr>
+
+                <!-- stream 1 -->
+                <tr>
+                  <td>1</td>
+                  <td>Temperature</td>
+                  <td>Degrees C</td>
+                  <td>Site-specific</td>
+                </tr>
+
+                <!-- stream 2 -->
+                <tr>
+                  <td>2</td>
+                  <td>Dew Point</td>
+                  <td>Degrees C</td>
+                  <td>Site-specific</td>
+                </tr>
+
+                <!-- stream 3 -->
+                <tr>
+                  <td>3</td>
+                  <td>Status</td>
+                  <td>NA</td>
+                  <td>0</td>
+                </tr>
+
+              </tbody>
+            </table>
+
+          <header id="baro">Vaisala Barometer</header>
+          <p>In congue quis diam quis interdum. Ut blandit elementum nisl, non hendrerit diam tempus eu. Pellentesque feugiat eros eget enim dignissim vehicula. Fusce ut luctus purus. Duis velit velit, lacinia non congue id, suscipit non ante. In sollicitudin ligula sed enim commodo, quis dapibus mi faucibus. Suspendisse placerat ipsum eros, non viverra massa facilisis et.</p>
+
+          <!-- table title -->
+          <caption>Barometer Data Streams</caption>
+            <table>
+              <!-- headers -->
+              <thead>
+                <th>Stream #</th>
+                <th>Stream Name</th>
+                <th>Units</th>
+                <th>Healthy Range</th>
+              </thead>
+
+              <tbody>
+                <!-- rows -->
+                <!-- stream 0 -->
+                <tr>
+                  <td>0</td>
+                  <td>Barometric Pressure</td>
+                  <td>kPa</td>
+                  <td>60 - 103</td>
+                </tr>
+
+                <!-- stream 1 -->
+                <tr>
+                  <td>1</td>
+                  <td>Temperature</td>
+                  <td>Degrees C</td>
+                  <td>Site-specific</td>
+                </tr>
+
+                <!-- stream 2 -->
+                <tr>
+                  <td>2</td>
+                  <td>Status</td>
+                  <td>NA</td>
+                  <td>0</td>
+                </tr>
+
+              </tbody>
+            </table>
+          
+          <header id="2dwind">2D Anemometer</header>
+          <p>Proin feugiat aliquam elit, ac pharetra ipsum elementum nec. Nulla non mattis leo, non luctus felis. Sed vitae mi eros. Duis eget enim fringilla nulla porttitor euismod at non nisi. Suspendisse lacus tellus, cursus eget fringilla a, finibus sed leo.</p>
+
+          <!-- table title -->
+          <caption>2D Wind Data Streams</caption>
+            <table>
+              <!-- headers -->
+              <thead>
+                <th>Stream #</th>
+                <th>Stream Name</th>
+                <th>Units</th>
+                <th>Healthy Range</th>
+              </thead>
+
+              <tbody>
+                <!-- rows -->
+                <!-- stream 0 -->
+                <tr>
+                  <td>0</td>
+                  <td>Wind Speed Along Boom</td>
+                  <td>m/s</td>
+                  <td>-65 to +65</td>
+                </tr>
+
+                <!-- stream 1 -->
+                <tr>
+                  <td>1</td>
+                  <td>Wind Speed Perpendicular to Boom</td>
+                  <td>m/s</td>
+                  <td>-65 to +65</td>
+                </tr>
+
+                <!-- stream 2 -->
+                <tr>
+                  <td>2</td>
+                  <td>Speed of sound</td>
+                  <td>m/s</td>
+                  <td>300 to 360</td>
+                </tr>
+
+                <!-- stream 3 -->
+                <tr>
+                  <td>3</td>
+                  <td>Temperature</td>
+                  <td>Degrees C</td>
+                  <td>Site-specific</td>
+                </tr>
+
+                <!-- stream 4 -->
+                <tr>
+                  <td>4</td>
+                  <td>Diagnostic</td>
+                  <td>NA</td>
+                  <td>0 (unheated); 60/65 (heated)</td>
+                </tr>
+
+              </tbody>
+            </table>
+
+          <header id="ats">ATS</header>
+          <p>Nulla non mattis leo, non luctus felis. Sed vitae mi eros. Duis eget enim fringilla nulla porttitor euismod at non nisi. Suspendisse lacus tellus, cursus eget fringilla a, finibus sed leo.</p>
+
+          <!-- table title -->
+          <caption>ATS Data Streams</caption>
+            <table>
+              <!-- headers -->
+              <thead>
+                <th>Stream #</th>
+                <th>Stream Name</th>
+                <th>Units</th>
+                <th>Healthy Range</th>
+              </thead>
+
+              <tbody>
+                <!-- rows -->
+                <!-- stream 0 -->
+                <tr>
+                  <td>0 (PRT)</td>
+                  <td>Temperature</td>
+                  <td>Degrees C (L1)</td>
+                  <td>Site-specific</td>
+                </tr>
+
+                <!-- stream 1 -->
+                <tr>
+                  <td>0 (Fan)</td>
+                  <td>Fan Speed</td>
+                  <td>RPM</td>
+                  <td>4500 to 5000</td>
+                </tr>
+
+                <!-- stream 2 -->
+                <tr>
+                  <td>1 (Fan)</td>
+                  <td>Turbine Speed</td>
+                  <td>RPM</td>
+                  <td>700 to 1000</td>
+                </tr>
+
+              </tbody>
+            </table>
+
+          <header id="tipping">Tipping Bucket</header>
+          <p>Duis eget enim fringilla nulla porttitor euismod at non nisi.</p>
+
+          <caption>Secondary Precipitation Data Streams</caption>
+            <table>
+              <thead>
+                <th>Stream #</th>
+                <th>Stream Name</th>
+                <th>Units</th>
+                <th>Healthy Range</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>0</td>
+                  <!-- not sure what formal name of this stream is  -->
+                  <td>Recorded Tips</td>
+                  <td>Number</td>
+                  <td>Site-specific; may return 2 from PuTTY if no tips were recorded</td>
+                </tr>
+              </tbody>
+            </table>
+
+          <p>To view the number of tips for a specific date:</p>
+          <code>vd -s EEPROM -r STREAM# -f /opt/neon/data/sockets_YYYYMMDD | wc -l</code>
+          <p>To view each of the tips for a specific date with associated time:</p>
+          <code>vd -s EEPROM -r STREAM# -f /opt/neon/data/sockets_YYYYMMDD</code>
+        </article>
+        
+      </section>
+      <div class="divider">
+        <hr>
+      </div>
+
+      <section id="Portal" class="main-section">
+
+        <header>Groundwater Wells</header>
+        <article>
+          <header id="trolls">Trolls</header>
+          <p>Morbi viverra, neque in imperdiet egestas, purus sem blandit ligula, euismod ullamcorper odio lacus et arcu. Aenean viverra orci sit amet fermentum ullamcorper. Quisque non diam sem. Ut tempor sagittis arcu a iaculis. Pellentesque sollicitudin sem vel eros pellentesque, eu auctor lacus porta.</p>
+          <header id="logging">Logging Data</header>
+          <code>In sollicitudin ligula sed enim commodo, quis dapibus mi faucibus. Suspendisse placerat ipsum eros, non viverra massa facilisis et.</code>
+          <p>Quisque non diam sem. Ut tempor sagittis arcu a iaculis. </p>
+        </article>
+
+      </section>
+      <div class="divider">
+        <hr>
+      </div>
+
+      <section id="misc" class="main-section">
+
+        <header>Power and Communications</header>
+        <article>
+          <header id="propane">Propane</header>
+          <p>Morbi viverra, neque in imperdiet egestas, purus sem blandit ligula, euismod ullamcorper odio lacus et arcu. Aenean viverra orci sit amet fermentum ullamcorper.</p>
+          <p>In congue quis diam quis interdum. Ut blandit elementum nisl, non hendrerit diam tempus eu. Pellentesque feugiat eros eget enim dignissim vehicula.</p>
+
+          <header id="stirling">Stirling Engine</header>
+          <p>Morbi viverra, neque in imperdiet egestas, purus sem blandit ligula, euismod ullamcorper odio lacus et arcu. Aenean viverra orci sit amet fermentum ullamcorper.</p>
+
+          <header id="portal">Portal</header>
+          <p>Morbi viverra, neque in imperdiet egestas, purus sem blandit ligula, euismod ullamcorper odio lacus et arcu. Aenean viverra orci sit amet fermentum ullamcorper.</p>
+        </article>
+
+        <code>Sample code</code>
+
+        <ul>
+          <li>LI 1</li>
+          <li>LI 2</li>
+        </ul>
+
+      </section>
+      <div class="divider">
+        <hr>
+      </div>
+<!--       Template for new section with subsections 
+      <section id="" class="main-section">
+
+        <header>Name</header>
+        <article>
+          <header id="">Name</header>
+          <p>Morbi viverra, neque in imperdiet egestas, purus sem blandit ligula, euismod ullamcorper odio lacus et arcu. Aenean viverra orci sit amet fermentum ullamcorper.</p>
+          <p>In congue quis diam quis interdum. Ut blandit elementum nisl, non hendrerit diam tempus eu. Pellentesque feugiat eros eget enim dignissim vehicula.</p>
+        </article>
+
+        <code>Sample code</code>
+
+        <ul>
+          <li>LI 1</li>
+          <li>LI 2</li>
+        </ul>
+
+      </section>
+      <div class="divider">
+        <hr>
+      </div>    -->   
+
+
+
+    </main>
+  </body>
+  
+<!-- needs to be at bottom of script because DOM manipulation -->
+  <script type="text/javascript" src="app.js"></script>
+
+</html>

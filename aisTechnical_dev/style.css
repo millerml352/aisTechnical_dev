@@ -1,0 +1,170 @@
+html,
+body {
+  min-width: 290px;
+  color: #4d4e53;
+  background-color: #ffffff;
+  font-family: "Open Sans", Arial, sans-serif;
+  line-height: 1.5;
+}
+
+#version{
+  text-align: center;
+}
+#navbar {
+  position: fixed;
+  min-width: 250px;
+  max-width: 300px;
+  top: 0px;
+  left: 0px;
+  width: 275px;
+  height: 100%;
+  border-right: solid;
+  border-color: rgba(0, 22, 22, 0.4);
+}
+
+#navbar header {
+  margin: 10px;
+}
+
+header {
+  color: black;
+  text-align: center;
+  font-size: 1.8em;
+  font-weight: thin;
+}
+
+#main-doc header {
+  text-align: left;
+
+}
+
+article header {
+  color: black;
+  text-align: left;
+  font-size: 1.5em;
+  font-weight: thin;
+  margin-top: 30px;
+}
+
+#navbar ul {
+  padding: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#navbar ul button {
+  border-top: 1px solid;
+  list-style: none;
+}
+
+#navbar ul button:last-of-type {
+  border-bottom: 1px solid;
+}
+
+#navbar ul li a {
+  display: block;
+  padding: 10px 30px;
+  color: #4d4e53;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#navbar ul ul li {
+  padding: 0px 15px;
+  font-size: 0.8em;
+}
+
+#navbar ul li a:hover {
+  color: #6d6df7;
+}
+
+#main-doc {
+  position: absolute;
+  margin-left: 310px;
+/*   padding: 20px; */
+  margin-bottom: 110px;
+}
+
+iframe {
+  display: none;
+}
+
+section {
+  margin-bottom: 50px;
+}
+
+.divider {
+  margin-bottom: 40px;
+}
+
+section article {
+  color: #4d4e53;
+  margin: 15px;
+  font-size: 0.96em;
+}
+
+section li {
+  margin: 15px 0px 0px 20px;
+}
+
+table {
+  background-color: #EBEBEB;
+}
+
+th, td {
+  padding: 5px;
+}
+code {
+  display: block;
+  text-align: left;
+  white-space: pre;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 2;
+  background-color: #e3e3ff;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #c9c9ff;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+.pdfToggler {
+  margin: 10px 0;
+}
+
+iframe {
+  margin: 10px 0;
+}
+
+.imgContainer {
+  display: table;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.imgCaption {
+  display:table-caption;
+  caption-side: bottom;
+}
