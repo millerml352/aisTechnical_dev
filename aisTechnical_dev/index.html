@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>AIS Bible</title>
+    <title>AIS Thing</title>
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
@@ -11,7 +11,7 @@
     <nav id="navbar">
 
       <header>Aquatic Site Maintenance</header>
-      <p id="version">v4.20.69</p>
+      <p id="version">v0.0.1</p>
       <ul>
 
         <button type="button" class="nav-link collapsible">Overview</button>
@@ -397,7 +397,10 @@
           <p>section about removing ice/snow w/ hot water thermos, hot hands, heat gun</p>
 
           <header id="humidity">HMP-155</header>
-          <p>Donec placerat nunc in odio tempus venenatis. Suspendisse placerat ipsum eros, non viverra massa facilisis et.</p>
+          <p>The Vaisala HMP-155 is a humidity and temperature sensor which measures for relative humidity, air temperature, and dew point/frost point temperature. Relative humidity is expressed as a percentage: the ratio of the partial pressure of water vapor to the equilibrium vapor pressure of water at a given temperature. At 100% relative humidity the air is considered saturated and is at its dew point.</p>
+
+          <p>The sensor is protected by a shield sometimes referred to as a "bird feeder" to protect the sensor from precipitation and solar radiation, while providing ventilation.</p>
+
 
           <!-- table title -->
           <caption>HMP-155 Data Streams</caption>
@@ -447,8 +450,17 @@
               </tbody>
             </table>
 
-          <header id="baro">Vaisala Barometer</header>
-          <p>In congue quis diam quis interdum. Ut blandit elementum nisl, non hendrerit diam tempus eu. Pellentesque feugiat eros eget enim dignissim vehicula. Fusce ut luctus purus. Duis velit velit, lacinia non congue id, suscipit non ante. In sollicitudin ligula sed enim commodo, quis dapibus mi faucibus. Suspendisse placerat ipsum eros, non viverra massa facilisis et.</p>
+            <div class="imgContainer">
+              <img src="" class="flexImg">
+              <br>
+              <div class="imgCaption">The HMP-155 sensor and shield.</div>
+            </div>
+
+
+          <header id="baro">Barometer</header>
+          <p>The Vaisala BAROCAP digital barometer PTB330 measures barometric pressure/static atmospheric pressure. Barometric pressure is significant in influencing weather conditions as well as aqueous chemistry (e.g. the amount of gas that can dissolve in solution). Measurements of atmospheric pressure allow atmospheric gas mixing ratios to be converted into mass quantities.</p>
+
+          <p>The metal pressure port coming out of the bottom of the sensor is an open port to the surrounding atmosphere. Pressure changes create a measureable change in the silicon membrane which alters the sensor's capacitance. This measurement is compared to a closed reference circuit (unaffected by atmospheric pressure changes) and corrected for temperature. An LED status indicator is present on the front panel of the barometer (should usually be solid green).</p>
 
           <!-- table title -->
           <caption>Barometer Data Streams</caption>
@@ -489,9 +501,15 @@
 
               </tbody>
             </table>
+
+            <p>The barometric pressure sensors rarely fail; the only documented failure causes the barometer to stream data as "0". The sensor will still be streaming data however DQ Blizzard sensor health range tests should identify this issue.</p>
           
           <header id="2dwind">2D Anemometer</header>
-          <p>Proin feugiat aliquam elit, ac pharetra ipsum elementum nec. Nulla non mattis leo, non luctus felis. Sed vitae mi eros. Duis eget enim fringilla nulla porttitor euismod at non nisi. Suspendisse lacus tellus, cursus eget fringilla a, finibus sed leo.</p>
+          <p>The Gill Wind Observor II sonic anemometer is used to measure two-dimensional wind speed. Wind plays an important role in atmospheric conditions. Horizontal and vertical wind are typically a function of differential heating of the Earth's surface and subsequent pressure gradients. Winds are responsible for advection of atmospheric pollutants, moiseture, heat, and momentum.</p>
+
+          <p>At aquatic meteorological stations a single 2D anemometer is mounted 3 meters off the ground with transducers facing upward. At terrestrial sites the 2D anemometer is located at the end of each profile boom with the transducers facing downwards. The 2D wind must orient north at all sites: a tiny red dot near the label should be facing <strong>away</strong> from the tower or met station mast.</p>
+
+          <p>The sensor consits of a body, four spars, and ultrasonic transducers on the ends of the spars. The transducers emit and receive ultrasonic pulses between each opposing pair oriented N-S and E-W. The sensor compares travel time between waves to calculate the wind speed component in that direction.</p>
 
           <!-- table title -->
           <caption>2D Wind Data Streams</caption>
@@ -549,8 +567,16 @@
               </tbody>
             </table>
 
+            <p>It is important to check the sensor status status data stream and sensor health component of DQ Blizzard when monitoring the 2D wind.</p>
+
+            <p>do we have a heated 2D wind at TECR if so status stream output of 65 instead of 60 indicative of heater malfunction</p>
+
           <header id="ats">ATS</header>
-          <p>Nulla non mattis leo, non luctus felis. Sed vitae mi eros. Duis eget enim fringilla nulla porttitor euismod at non nisi. Suspendisse lacus tellus, cursus eget fringilla a, finibus sed leo.</p>
+          <p>The Aspirated Air Temperature sensor (AAT) is comprised of a platinum resistance thermometer (PRT) housed inside an aspirated shield (circulating by fan in the top of the housing) to reduce radiative heat bias. PRTs use electrical resistance to measure ambient temperature. Temperature is a fundamental physical measurement and a driving factor for physical, chemical, and biological processes.</p>
+
+          <p>The AAT consists of a mounting plate, radiation shield, and "snout." An AAT with one PRT is an ATS (aspirated temperature single) which is present at the aquatic met stations. Tower sites may have ATTs (aspirated temperature triple) with three PRTs inside the housing.</p>
+
+          <p>The fan at the top of the housing pulls air through two concentric ports. Air flowing through the inner port is to remove radiative heat from the PRTs. Air flowing through the outer port is to remove air heated by solar radiation. Air should never flow out of the snout (bottom). If so, it means the fan was installed backwards.</p>
 
           <!-- table title -->
           <caption>ATS Data Streams</caption>
@@ -586,11 +612,13 @@
                   <td>1 (Fan)</td>
                   <td>Turbine Speed</td>
                   <td>RPM</td>
-                  <td>700 to 1000</td>
+                  <td>500 to 1000</td>
                 </tr>
 
               </tbody>
             </table>
+
+            <p>The most common failure point with the ATS is the fan assembly, the turbine tachometer. If ranges are consistently dropping below what is expected this could indicate the fan is beginning to fail or needs to be cleaned. A failing GRAPE port can also cause fan outages. </p>
 
           <header id="tipping">Tipping Bucket</header>
           <p>Duis eget enim fringilla nulla porttitor euismod at non nisi.</p>
