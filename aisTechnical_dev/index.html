@@ -11,7 +11,7 @@
     <nav id="navbar">
 
       <header>Aquatic Site Maintenance</header>
-      <!-- <p id="version">v0.0.1</p> -->
+      <p id="version">Last Revised: yyyymmdd</p>
       <ul>
 
         <button type="button" class="nav-link collapsible">Overview</button>
@@ -28,10 +28,13 @@
           <li><a href="#hoboLogs" class="nav-link">HOBOs</a></li>
         </ul>
       
-        <button type="button" class="nav-link collapsible"><del>SUNA</del></button>
+        <button type="button" class="nav-link collapsible">Sensor Sets and Wells</button>
         <ul class="content">
-          <li><a href="#suna_calibration" class="nav-link">Calibration</a></li>
-          <li><a href="#suna_replacement" class="nav-link">Replacement</a></li>
+          <li><a href="#sonde" class="nav-link">Sonde</a></li>
+          <li><a href="#suna" class="nav-link">SUNA</a></li>
+          <li><a href="#levelTroll" class="nav-link">Level Troll</a></li>
+          <li><a href="#gww" class="nav-link">Groundwater Wells</a></li>
+          <li><a href="#sensorSets" class="nav-link">S1/S2</a></li>
         </ul>
       
         <button type="button" class="nav-link collapsible">Met Station</button>
@@ -44,14 +47,8 @@
           <li><a href="#ats" class="nav-link">ATS</a></li>
           <li><a href="#tipping" class="nav-link">Tipping Bucket</a></li>
         </ul>
-      
-        <button type="button" class="nav-link collapsible"><del>Groundwater Wells</del></button>
-        <ul class="content">
-          <li><a href="#trolls" class="nav-link">Troll</a></li>
-          <li><a href="#logging" class="nav-link">Logs</a></li>
-        </ul>
 
-        <button type="button" class="nav-link collapsible">Portal, Stirling, Propane</button>
+        <button type="button" class="nav-link collapsible">Power & Communications</button>
         <ul class="content">
           <li><a href="#propane" class="nav-link">Propane</a></li>
           <li><a href="#stirling" class="nav-link">Stirling</a></li>
@@ -76,20 +73,66 @@
 
 <!-- MAIN -->
     <main id="main-doc">
-      <header>Overview</header>
+      <div class="container">
+
+      <!-- General Information -->
       <section id="Overview" class="main-section">
-        
-        <article>
+
         <header id="generalSite">General Information</header>
+        <article></article>
           
-          <h5>Accessing a Site's LC Through PuTTY</h5>
+          <h4>Accessing a Site Through PuTTY</h4>
+          <h5>Open PuTTY and connect to the site first.</h5>
           <p>Host Name: LC IP Address</p>
           <p>Port: 22</p>
           <p>Connection Type: SSH</p>
+          <h5>When prompted to log-in:</h5>
+          <p>Username: user</p>
+          <p>Password: resuresu</p>
+
+          <caption>View GRAPE and Sensor Data Streams</caption>
+            <table>
+              <thead>
+                <th>PuTTY Commands</th>
+                <th>Description</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>vd | grep [MAC Address]</td>
+                  <td>This displays the data from the grape with the MAC Address
+                    entered (e.g., using “7CE0440015FD”). Enter either in
+                    decimal or hexadecimal format. Use “grep –i” to ignore case.</td>
+                </tr>
+                <tr>
+                  <td>vd -s [sensor EEPROM]</td>
+                  <td>To view data from a sensor. For example “root@D23-HQTWLC1:~# vd -s 3171982”</td>
+                </tr>
+                <tr>
+                  <td>vd -s [sensor EEPROM] -r [stream number]</td>
+                  <td>To view data from a sensor
+                    and specific data stream.</td>
+                </tr>
+              </tbody>
+            </table>
           
-          <h5>Rocketlinx Switch Access</h5>
+          <h4>Rocketlinx Switch Access</h4>
           <p>Username: admin</p>
           <p>Password: ne0n6366</p>
+
+          <h4>How to power cycle a GRAPE</h4> 
+          <p>Power cycling a GRAPE is useful if you have found a sensor that is not streaming and you do not know why yet. Sometimes, like with all electronics, simply turning the thing off and on again will fix all the things.</p>
+          <ol>
+            <li>Find the sensor you are having issues with in your sensor mapping document. </li>
+            <li>This sensor will have an IP address and a port listed next to it. Type in this ip address in to a web browser. You will now be asked to log in to the RocketLink switch with that IP address.</li>
+            <li>You have a list of folders on the left hand side.</li>
+              <ul>
+                <li>Monitor and Diag -> Device front panel:  Shows an image of the switch you are working on. It shows which ports are powered and which are not. Greens means data is flowing freely through the switch, black means ded.</li>
+                <li>Power Over Ethernet -> PoE Control: This is where you can see which ports are powered and which are not, they will be labeled “Enabled” or “Disabled” in the first columns.</li>
+              </ul>
+            <li>Access the PoE control folder and find the port your GRAPE is plugged in to. Switch the mode from “Enable” to “Disable” and hit apply.</li>
+            <li>Keep the port disabled for 5-10 minutes then re-enable it.</li>
+            <li>Pray to Tower Jesus that you fixed your sensor has started streaming again</li>
+          </ol>	         
 
         <!-- HORVER and maximo/general instrument locations  -->
         <caption>Sensor Locations</caption>
@@ -149,6 +192,8 @@
                 </tr>
               </tbody>
             </table>
+          
+            <br>
 
           <!-- BIGC -->
           <header id="bigc">Upper Big Creek (BIGC)</header>
@@ -194,6 +239,7 @@
 
           </div> -->
 
+          <br>
           <br>
           
           <!-- TECR -->
@@ -241,10 +287,12 @@
         </article>   
 
       </section>
+
       <div class="divider">
         <hr>
       </div>
 
+      <!-- Logging -->
       <section id="Logs" class="main-section">
 
         <header>Setting and Downloading Logs</header>
@@ -287,12 +335,56 @@
         <hr>
       </div>
 
+      <!-- In Stream Sensors and Wells and Things -->
+      <section id="Sensor_Sets" class="main-section">
+
+
+        <header>Sensor Sets and Wells</header>
+        <article>
+          <label>What to possibly put here:</label>
+        <ul>
+          <li>not calibration instructions, leave that to PMs</li>
+          <li>things like proper orientation of SUNA for those days where no one is 100% sure?</li>
+          <li>infrastructure drawings? how the spring loaded bolts fit into unistrut for the rare occasions we need to know that</li>
+          <li>GWW radio, battery, fuse, charge controller things</li>
+          <li>PDS/DAS drawings - might be better for Power & Communications though</li>
+        </ul>
+          <header id="sonde">Sonde</header>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis cumque ullam tenetur a earum provident rem corporis, molestiae perspiciatis, temporibus quas eveniet quae officia, sit voluptatem dolore totam reprehenderit laboriosam.</p>
+
+          <header id="suna">SUNA</header>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis cumque ullam tenetur a earum provident rem corporis, molestiae perspiciatis, temporibus quas eveniet quae officia, sit voluptatem dolore totam reprehenderit laboriosam.</p>
+
+          <header id="levelTroll">Level Trolls</header>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis cumque ullam tenetur a earum provident rem corporis, molestiae perspiciatis, temporibus quas eveniet quae officia, sit voluptatem dolore totam reprehenderit laboriosam.</p>
+
+          <header id="gww">Groundwater Wells</header>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis cumque ullam tenetur a earum provident rem corporis, molestiae perspiciatis, temporibus quas eveniet quae officia, sit voluptatem dolore totam reprehenderit laboriosam.</p>
+
+          <header id="sensorSets">S1 and S2</header>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis cumque ullam tenetur a earum provident rem corporis, molestiae perspiciatis, temporibus quas eveniet quae officia, sit voluptatem dolore totam reprehenderit laboriosam.</p>
+        </article>
+
+      </section>
+
+      <div class="divider">
+        <hr>
+      </div>
+
+      <!-- Met Station -->
       <section id="Met_Station" class="main-section">
 
         <header>Met Station</header>
+
         <article>
           <header id="par">PAR</header>
           <p>The Kipp & Zonen PQS-1 PAR Quantum Sensor (PAR or PQS1) measures photosynthetically active radiation. The most important component of the sensor is the diffuser. The diffuser is where light enters the sensor so it must be kept clear of debris, be protected from scratches or residue, and remain level to take accurate and consistent measurements. A built-in bubble level and adjustment screws allow for easy leveling. Use a soft-bristled brush or damp Kimwipe to gently wipe away accumulated dirt or residue. A digital level can be used to ensure the PAR is level along North-South and East-West axes.</p>
+
+          <div class="imgContainer">
+            <img src="assets/images/par.jpg" class="flexImg">
+            <br>
+            <div class="imgCaption">The PAR sensor with the central diffuser, integrated bubble level, and three leveling bolts.</div>
+          </div>
 
           <p>The PAR produces one data stream. Raw L0 data is collected in volts (V) and L1 readings are expressed in micromoles per second and square meter (µm/m<sup>2</sup>/s). A healthy range for L1 data is between 0 and 1000. Monitor PAR values across an entire site to verify they are reading within normal values for the area.</p>
 
@@ -315,9 +407,17 @@
               </tbody>
             </table>
           
+            <br>
 
-          <code>insert code for accessing a sample PAR stream via putty? maybe IS suite screenshot as well?</code>
+            <div class="imgContainer">
+              <img src="dev/PAR blizzard/par_IN.png" class="flexImg">
+              <br>
+              <div class="imgCaption">A normal day for the BIGC Met station PAR showing shading from the canopy during the morning hours.</div>
+            </div>
 
+          <code>sample code</code>
+
+          <br>
           <header id="netRad">NR-01</header>
           <p>The Huskeflux NR01 Net Radiometer (NR01) consists of four separate sensors for measuring total global and surface reflected shortwave and longwave radiation. A pair of upward and downward facing SR01 pyranometers (domed sensor, shortwave radiation) and a pair of upward and downward facing IR01 pyrgeometers (flat sensor, longwave radiation) make up the four sensors of this instrument. The pyrgeometers are also fitted with a small 1.5W heater to keep the sensors above dew point overnight (should see activity ever night), and a temperature sensor in the body used to correct irradiance measurements. A digital level should be used to ensure the NR01 is level along x- and y-axes.</p>
 
@@ -388,13 +488,15 @@
           <code>sample code for accessing streams here</code>
 
           <div class="imgContainer">
-            <img class="flexImg" src="assets/images/nr01_plots.png">
+            <img class="" src="assets/images/nr01_plots.png">
             <div class="imgCaption">L0 Blizzard data for each of the individual sensors that make up the NR01. Data taken from BIGC on 2020-08-05.</div>
           </div>
 
-          <p>elaborate on plots here: well defined curve for incoming shortwave and reflection; likely cloud/shade cover in am; outgoing longwave mirrors the shortwave during the day due to the sun heating things up on the ground; incoming longwave is low because of a lack of clouds reflecting radiation back</p>
+          <!-- <p>elaborate on plots here: well defined curve for incoming shortwave and reflection; likely cloud/shade cover in am; outgoing longwave mirrors 
+            the shortwave during the day due to the sun heating things up on the ground; incoming longwave is low because of a lack of clouds reflecting radiation back</p>
+          <p></p> -->
 
-          <p>Section about PMs</p>
+          <!-- <p>Section about PMs</p> -->
 
           <div class="imgContainer">
             <img src="assets/images/nr01_merlotLayout.png" class="flexImg">
@@ -402,8 +504,8 @@
             <div class="imgCaption">GRAPE diagram for the NR01. At AIS Met Stations the NR01 shares a Merlot 12V GRAPE with the PAR.</div>
           </div>
 
-          <p>section about removing ice/snow w/ hot water thermos, hot hands, heat gun</p>
 
+          <br>
           <header id="humidity">HMP-155</header>
           <p>The Vaisala HMP-155 is a humidity and temperature sensor which measures for relative humidity, air temperature, and dew point/frost point temperature. Relative humidity is expressed as a percentage: the ratio of the partial pressure of water vapor to the equilibrium vapor pressure of water at a given temperature. At 100% relative humidity the air is considered saturated and is at its dew point.</p>
 
@@ -459,12 +561,12 @@
             </table>
 
             <div class="imgContainer">
-              <img src="" class="flexImg">
+              <img src="assets/images/HMP155.png" class="flexImg">
               <br>
               <div class="imgCaption">The HMP-155 sensor and shield.</div>
             </div>
 
-
+            <br>
           <header id="baro">Barometer</header>
           <p>The Vaisala BAROCAP digital barometer PTB330 measures barometric pressure/static atmospheric pressure. Barometric pressure is significant in influencing weather conditions as well as aqueous chemistry (e.g. the amount of gas that can dissolve in solution). Measurements of atmospheric pressure allow atmospheric gas mixing ratios to be converted into mass quantities.</p>
 
@@ -511,13 +613,27 @@
             </table>
 
             <p>The barometric pressure sensors rarely fail; the only documented failure causes the barometer to stream data as "0". The sensor will still be streaming data however DQ Blizzard sensor health range tests should identify this issue.</p>
-          
+            
+            <div class="imgContainer">
+              <img src="assets/images/baro.png" class="flexImg">
+              <br>
+              <div class="imgCaption">The HMP-155 sensor and shield.</div>
+            </div>
+
+            <br>
           <header id="2dwind">2D Anemometer</header>
           <p>The Gill Wind Observor II sonic anemometer is used to measure two-dimensional wind speed. Wind plays an important role in atmospheric conditions. Horizontal and vertical wind are typically a function of differential heating of the Earth's surface and subsequent pressure gradients. Winds are responsible for advection of atmospheric pollutants, moiseture, heat, and momentum.</p>
 
+          <p>The sensor consits of a body, four spars, and ultrasonic transducers on the ends of the spars. The transducers emit and receive ultrasonic pulses between each opposing pair oriented N-S and E-W. The sensor compares travel time between waves to calculate the wind speed component in that direction.</p>
+
+          <div class="imgContainer">
+            <img src="assets/images/2dWind.JPG" class="flexImg">
+            <br>
+            <div class="imgCaption">The 2D anemometer with representation of the "red dot" on sensor body to help with installation orientation (should be facing away from the tower or met station).</div>
+          </div>
+
           <p>At aquatic meteorological stations a single 2D anemometer is mounted 3 meters off the ground with transducers facing upward. At terrestrial sites the 2D anemometer is located at the end of each profile boom with the transducers facing downwards. The 2D wind must orient north at all sites: a tiny red dot near the label should be facing <strong>away</strong> from the tower or met station mast.</p>
 
-          <p>The sensor consits of a body, four spars, and ultrasonic transducers on the ends of the spars. The transducers emit and receive ultrasonic pulses between each opposing pair oriented N-S and E-W. The sensor compares travel time between waves to calculate the wind speed component in that direction.</p>
 
           <!-- table title -->
           <caption>2D Wind Data Streams</caption>
@@ -575,10 +691,16 @@
               </tbody>
             </table>
 
+            
+          <div class="imgContainer">
+            <img src="assets/images/2dwind_blizzard.JPG" class="flexImg">
+            <br>
+            <div class="imgCaption">Blizzard data from a malfunctioning 2D wind returning to healthy data after replacement.</div>
+          </div>
+
             <p>It is important to check the sensor status status data stream and sensor health component of DQ Blizzard when monitoring the 2D wind.</p>
 
-            <p>do we have a heated 2D wind at TECR if so status stream output of 65 instead of 60 indicative of heater malfunction</p>
-
+          <br>
           <header id="ats">ATS</header>
           <p>The Aspirated Air Temperature sensor (AAT) is comprised of a platinum resistance thermometer (PRT) housed inside an aspirated shield (circulating by fan in the top of the housing) to reduce radiative heat bias. PRTs use electrical resistance to measure ambient temperature. Temperature is a fundamental physical measurement and a driving factor for physical, chemical, and biological processes.</p>
 
@@ -628,8 +750,41 @@
 
             <p>The most common failure point with the ATS is the fan assembly, the turbine tachometer. If ranges are consistently dropping below what is expected this could indicate the fan is beginning to fail or needs to be cleaned. A failing GRAPE port can also cause fan outages. </p>
 
+            <div class="imgContainer">
+              <img src="assets/images/AST.JPG" class="flexImg">
+              <br>
+              <div class="imgCaption">A diagram of the ATS assembly with direction of air-flow. If air is circulating the opposite direction it is likely that the fan was installed backwards.</div>
+            </div>
+
+            <br>
           <header id="tipping">Tipping Bucket</header>
-          <p>Duis eget enim fringilla nulla porttitor euismod at non nisi.</p>
+          <p>This sensor assembly collects any precipitation that falls through a fixed horizontal plane (the top of the
+            white collector). The collector then funnels liquid water into the sensor. The sensor utilizes a two-sided
+            “bucket” that will alternate tips between sides (both of similar volume). As one side of the bucket has
+            accumulated the prescribed amount (typically about 0.5mm of liquid precipitation accumulation in the bucket, approximately equivalent to 16.125 mL for the current bucket design), the
+            bucket tips to the other side, immediately beginning new precipitation accumulation into the opposite
+            bucket while the previous side tips to drain.</p>
+            
+            <p>This tipping design allows for continuous measurement of
+            the rainfall amount and rate. The tipping mechanism is fitted with a magnet that passes by a reed
+            switch, closing the sensing circuit with each bucket tip in either direction. The limitation of this form of
+            collection are small precipitation events that fail to trigger the tipping mechanism, and thus, fail to
+            collect a measurement. Capturing low-volume precipitation events may occur within a later event, or
+            become lost due to evaporation before allowing the gauge to measure any collection. </p>
+
+            <div class="imgContainer">
+              <img src="assets/images/tipping.JPG" class="flexImg">
+              <br>
+              <div class="imgCaption"></div>
+            </div>
+
+            <p>Heated units are fitted with a heater on both the sensor body and the precipitation collector. This
+              ensures that frozen water precipitation events (e.g. snow, hail, sleet) are melted and recorded as liquid
+              water (ideally prior to sublimation or evaporation). Additionally, the heaters keep the internal tipping
+              mechanism and bearing operating freely and consistently throughout the year. The heater
+              control thermostat set point is 4.4⁰C. Once the temperature falls to the 4.4⁰C set point, the heater
+              automatically turns on. Once it rises to the set point, the heater turns off.
+              </p>
 
           <caption>Secondary Precipitation Data Streams</caption>
             <table>
@@ -657,52 +812,34 @@
         </article>
         
       </section>
+
       <div class="divider">
         <hr>
       </div>
 
-      <section id="Portal" class="main-section">
-
-        <header>Groundwater Wells</header>
-        <article>
-          <header id="trolls">Trolls</header>
-          <p>Morbi viverra, neque in imperdiet egestas, purus sem blandit ligula, euismod ullamcorper odio lacus et arcu. Aenean viverra orci sit amet fermentum ullamcorper. Quisque non diam sem. Ut tempor sagittis arcu a iaculis. Pellentesque sollicitudin sem vel eros pellentesque, eu auctor lacus porta.</p>
-          <header id="logging">Logging Data</header>
-          <code>In sollicitudin ligula sed enim commodo, quis dapibus mi faucibus. Suspendisse placerat ipsum eros, non viverra massa facilisis et.</code>
-          <p>Quisque non diam sem. Ut tempor sagittis arcu a iaculis. </p>
-        </article>
-
-      </section>
-      <div class="divider">
-        <hr>
-      </div>
-
+      <!-- Portal, Stirling, Propane -->
       <section id="misc" class="main-section">
 
         <header>Power and Communications</header>
         <article>
           <header id="propane">Propane</header>
-          <p>Morbi viverra, neque in imperdiet egestas, purus sem blandit ligula, euismod ullamcorper odio lacus et arcu. Aenean viverra orci sit amet fermentum ullamcorper.</p>
-          <p>In congue quis diam quis interdum. Ut blandit elementum nisl, non hendrerit diam tempus eu. Pellentesque feugiat eros eget enim dignissim vehicula.</p>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, omnis delectus aperiam sit voluptate culpa alias et atque eos velit doloribus incidunt quod error facere expedita maiores quas nobis eveniet.</p>
 
           <header id="stirling">Stirling Engine</header>
-          <p>Morbi viverra, neque in imperdiet egestas, purus sem blandit ligula, euismod ullamcorper odio lacus et arcu. Aenean viverra orci sit amet fermentum ullamcorper.</p>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit quibusdam blanditiis aspernatur. Quis maxime animi nihil dolores quos incidunt placeat, et ad corrupti? Ab totam sed numquam, cum eaque sunt.</p>
 
           <header id="portal">Portal</header>
-          <p>Morbi viverra, neque in imperdiet egestas, purus sem blandit ligula, euismod ullamcorper odio lacus et arcu. Aenean viverra orci sit amet fermentum ullamcorper.</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, perferendis numquam! Quibusdam recusandae nulla inventore. Odio amet maxime officiis, id perspiciatis in corporis quasi iusto quod nostrum molestias doloribus tenetur.</p>
         </article>
 
         <code>Sample code</code>
 
-        <ul>
-          <li>LI 1</li>
-          <li>LI 2</li>
-        </ul>
-
       </section>
+
       <div class="divider">
         <hr>
       </div>
+
 <!--       Template for new section with subsections 
       <section id="" class="main-section">
 
@@ -724,13 +861,12 @@
       <div class="divider">
         <hr>
       </div>    -->   
-
-
+    </div>
 
     </main>
   </body>
   
-<!-- needs to be at bottom of script because DOM manipulation -->
-  <script type="text/javascript" src="app.js"></script>
+<!-- keep JS at bottom of index to pre-load DOM -->
+<script type="text/javascript" src="app.js"></script>
 
 </html>

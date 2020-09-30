@@ -168,3 +168,7 @@ iframe {
   display:table-caption;
   caption-side: bottom;
 }
+
+.flexImg {
+  max-height: 400px;
+}
