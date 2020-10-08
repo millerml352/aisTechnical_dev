@@ -57,10 +57,10 @@
 
         <!-- Template for new section on nav bar - <ul> for .content is REQUIRED due to click listener logic using nextElementSibling off .collapsible
 
-        <button type="button" class="nav-link collapsible">Name</button>
+        <button type="button" class="nav-link collapsible">Major Section Name Here</button>
         <ul class="content">
-          <li><a href="#" class="nav-link">SectionName</a></li>
-          <li><a href="#" class="nav-link">SectionName</a></li>
+          <li><a href="#this ID must match the ID declared for a subsection in the main content below in order to enable quick jumping to that section" class="nav-link">SubsectionName</a></li>
+          <li><a href="#" class="nav-link">SubsectionName</a></li>
         </ul> 
 
         -->
@@ -349,6 +349,7 @@
           <li>GWW radio, battery, fuse, charge controller things</li>
           <li>PDS/DAS drawings - might be better for Power & Communications though</li>
         </ul>
+
           <header id="sonde">Sonde</header>
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis cumque ullam tenetur a earum provident rem corporis, molestiae perspiciatis, temporibus quas eveniet quae officia, sit voluptatem dolore totam reprehenderit laboriosam.</p>
 
@@ -822,13 +823,16 @@
 
         <header>Power and Communications</header>
         <article>
-          <header id="propane">Propane</header>
+          <p>lock combos</p>
+          <p>update propane level on tracking sheet</p>
+          <header id="propane"><del>Propane</del></header>
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, omnis delectus aperiam sit voluptate culpa alias et atque eos velit doloribus incidunt quod error facere expedita maiores quas nobis eveniet.</p>
 
           <header id="stirling">Stirling Engine</header>
           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit quibusdam blanditiis aspernatur. Quis maxime animi nihil dolores quos incidunt placeat, et ad corrupti? Ab totam sed numquam, cum eaque sunt.</p>
 
           <header id="portal">Portal</header>
+          <p>breakers and things</p>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, perferendis numquam! Quibusdam recusandae nulla inventore. Odio amet maxime officiis, id perspiciatis in corporis quasi iusto quod nostrum molestias doloribus tenetur.</p>
         </article>
 
@@ -840,27 +844,50 @@
         <hr>
       </div>
 
-<!--       Template for new section with subsections 
-      <section id="" class="main-section">
+<!--       Template for new section with subsections: paste this all below the divider above and add a new button in the navbar up top
 
-        <header>Name</header>
+      <section id="unique_id" class="main-section">
+
+        <header>Main Section Name</header>
         <article>
-          <header id="">Name</header>
+          <header id="pick_a_unique_id_related_to_sections_name">Subsection Name</header>
+
+          <p>p tags enclose paragraphs, pretty basic text. I recommend looking up at the other complete sections to steal bits of code to use as templates</p>
+          <p>in the event that you want to add new items like tables/images/code blocks etc.</p>
+
+          <header id="pick_a_unique_id_related_to_sections_name">Subsection Name</header>
+
           <p>Morbi viverra, neque in imperdiet egestas, purus sem blandit ligula, euismod ullamcorper odio lacus et arcu. Aenean viverra orci sit amet fermentum ullamcorper.</p>
           <p>In congue quis diam quis interdum. Ut blandit elementum nisl, non hendrerit diam tempus eu. Pellentesque feugiat eros eget enim dignissim vehicula.</p>
         </article>
 
         <code>Sample code</code>
 
+        remove the class "flexImg" to change how the image fills the page
+        <div class="imgContainer">
+            <img src="relative/file/path/to/image/location.jpg" class="flexImg">
+            <br>
+            <div class="imgCaption">caption for image</div>
+          </div>
+
         <ul>
-          <li>LI 1</li>
-          <li>LI 2</li>
+          <p>Bulleted list</p>
+          <li>List item 1</li>
+          <li>List item 2</li>
         </ul>
 
+        <ol>
+          <p>Ordered list</p>
+          <li>List item 1</li>
+          <li>List item 2</li>
+        </ol>
+
       </section>
+
       <div class="divider">
         <hr>
       </div>    -->   
+
     </div>
 
     </main>

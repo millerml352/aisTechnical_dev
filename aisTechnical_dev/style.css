@@ -10,6 +10,7 @@ body {
 #version{
   text-align: center;
 }
+
 #navbar {
   position: fixed;
   min-width: 250px;
